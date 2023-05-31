@@ -1,8 +1,10 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native'
 import { Entypo, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import colors from '../../app/config/colors';
+import { useNavigation } from '@react-navigation/native';
 
 const Options = (props) => {
+    const navigation = useNavigation();
   return (
     <View>
         <View style={styles.header}>
@@ -14,11 +16,11 @@ const Options = (props) => {
             </View>
         </View>
         <View style={styles.optionSection}>
-            <Pressable style={styles.options} onPress={() => console.log('view candidates')}>
+            <Pressable style={styles.options} onPress={() => navigation.navigate("Invigilator-List")}>
                 <MaterialCommunityIcons name="format-list-bulleted" size={34} color= {colors.white} />
                 <Text style={styles.sectionText}>View Candidates List</Text>
             </Pressable>
-            <Pressable style={styles.options} onPress={() => console.log('take attendance')}>
+            <Pressable style={styles.options} onPress={() => navigation.navigate("QR-Code-Scan")}>
                 <Ionicons name="md-checkmark-done-sharp" size={34} color= {colors.white} />
                 <Text style={styles.sectionText}>Take Attendance</Text>
             </Pressable>

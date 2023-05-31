@@ -18,6 +18,7 @@ import { SubmitButtoniOS, SubmitButtonAndroid } from './components/Others/Submit
 import MPFormSelectStudent from './components/Invigilators/MalpracticeForm/MPFormSelectStudent';
 import MPFormSelectOffence from './components/Invigilators/MalpracticeForm/MPFormSelectOffence';
 import Scanner from './components/Invigilators/Scanner/Scanner';
+// import { Navigati<<<<<<< HEAD
 // import { NavigationContainer } from '@react-navigation/native';
 // import StackNav from './components/Nav/StackNav';
 import Code from './components/Students/Code';
@@ -31,18 +32,20 @@ const Trial = Platform.select({
   ios: () => <Scanner />,
   android: () => <Code/>,
 });
+// =======
+import StackNavigator from './navigation/StackNavigator';
+// >>>>>>> 9b79fbb05ebbb09e916e044b90cae1dcc927bac2
 
 export default function App() {
 
   return (
-    <Trial />
+    // <View style= {styles.container}>
+      // {/* <Text>abcde</Text> */}
+      //<MPFormSelectStudent/>
+    // </View>
+    <StackNavigator/>
+// {
+//     backgroundColor: '#fff',
+//   },
 
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#fff',
-  },
-
-});
+)};

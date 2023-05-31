@@ -161,14 +161,16 @@ const SubmitButton = Platform.select({
   android: ({style}) => <SubmitButtonAndroid text="Submit Attendance" style={style}/>,
 });
 
-const CandidatesList = () => {
+const CandidatesList = ({ query }) => {
+    const attendanceList = list.filter(item => item.name?.toLowerCase().includes(query?.toLowerCase()));
+
     return (
       <View style={{ alignItems:"center"}} >
 
         <FlatList
             contentContainerStyle= {styles.list}
             columnWrapperStyle={styles.columnSpacing}
-            data= {list}
+            data= {attendanceList}
             keyExtractor= {item=>item.regNo}
             ItemSeparatorComponent={() => <View style={{ width: 16, backgroundColor: 'pink' }}/>}
             renderItem={({item}) => <Candidates regNo={item.regNo} name= {item.name}/>}

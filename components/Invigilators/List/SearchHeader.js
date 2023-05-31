@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Separator from '../../Others/Separator';
 import colors from '../../../app/config/colors';
 
-const SearchHeaderAndroid = () => {
+const SearchHeaderAndroid = ({ setInputValue, value }) => {
     // const [filterOn, setFilterOn]= useState(false)
     const [filterIcon, setFilterIcon]= useState(true)
     const [filterIconCircle, setFilterIconCircle]= useState(false)
@@ -59,6 +59,7 @@ const SearchHeaderAndroid = () => {
                     <TextInput  
                         style={styles.searchText} 
                         placeholder="Search Name or ID Number"
+                        value={value}
                         onChangeText={(text) => setInputValue(text)}
                         clearButtonMode= 'always'
                         />
@@ -106,7 +107,7 @@ const SearchHeaderAndroid = () => {
         </View>
     )
 }
-const SearchHeaderiOS = () => {
+const SearchHeaderiOS = ({ setInputValue, value }) => {
     // const [filterOn, setFilterOn]= useState(false)
     const [filterIcon, setFilterIcon]= useState(true)
     const [filterIconCircle, setFilterIconCircle]= useState(false)
@@ -169,6 +170,7 @@ const SearchHeaderiOS = () => {
                     <TextInput  
                         style={styles.searchText} 
                         placeholder="Search Name or ID Number"
+                        value={value}
                         onChangeText={(text) => setInputValue(text)}
                         clearButtonMode= 'always'
                     />
