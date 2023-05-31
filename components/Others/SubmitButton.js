@@ -20,7 +20,7 @@ const AnimatedIcon= Animated.createAnimatedComponent(FontAwesome5)
 const SubmitButtonAndroid = ({text, style}) => {
   return (
     <View style={style}>
-      <Pressable style={styles.androidButton} onPress={() => Alert.alert('Simple Button pressed')}>
+      <Pressable style={styles.androidButton} onPress={() => Alert.alert('Submitted!', 'Attendance has been submitted!')}>
         <Text style={styles.androidText}>{text}</Text>
       </Pressable>
     </View>

@@ -19,13 +19,15 @@ import { SubmitButtoniOS, SubmitButtonAndroid } from './components/Others/Submit
 import MPFormSelectStudent from './components/Invigilators/MalpracticeForm/MPFormSelectStudent';
 import MPFormSelectOffence from './components/Invigilators/MalpracticeForm/MPFormSelectOffence';
 import Scanner from './components/Invigilators/Scanner/Scanner';
+import StackNavigator from './navigation/StackNavigator';
 
 export default function App() {
   return (
     // <View style= {styles.container}>
       // {/* <Text>abcde</Text> */}
-      <MPFormSelectStudent/>
+      //<MPFormSelectStudent/>
     // </View>
+    <StackNavigator/>
 
   );
 }
