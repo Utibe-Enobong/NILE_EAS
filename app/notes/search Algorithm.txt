@@ -1,0 +1,22 @@
+const SearchStudents = () => {
+  const [searchKey, setSearchKey] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+
+  const searchStudents = async () => {
+    try {
+      const db = firebase.firestore();
+      const studentsRef = db.collection('students');
+      const querySnapshot = await studentsRef
+        .where('name', '==', searchKey) // Replace 'name' with the desired search key
+        .get();
+
+      const results = [];
+      querySnapshot.forEach((doc) => {
+        results.push(doc.data());
+      });
+
+      setSearchResults(results);
+    } catch (error) {
+      console.error('Error searching students:', error);
+    }
+  };

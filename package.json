@@ -1,0 +1,48 @@
+{
+  "name": "nile_eas",
+  "version": "1.0.0",
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "@react-navigation/native": "^6.1.6",
+    "@react-navigation/native-stack": "^6.9.12",
+    "date-fns": "^2.30.0",
+    "expo": "~48.0.15",
+    "expo-barcode-scanner": "^12.3.2",
+    "expo-checkbox": "~2.3.1",
+    "expo-image-picker": "^14.1.1",
+    "expo-linear-gradient": "~12.1.2",
+    "expo-permissions": "^14.1.1",
+    "expo-status-bar": "~1.4.4",
+    "firebase": "^9.21.0",
+    "react": "18.2.0",
+    "react-native": "0.71.8",
+    "react-native-camera": "^4.2.1",
+    "react-native-circular-progress-indicator": "^4.4.2",
+    "react-native-gesture-handler": "~2.9.0",
+    "react-native-linear-gradient": "^2.6.2",
+    "react-native-raw-bottom-sheet": "^2.2.0",
+    "react-native-reanimated": "~2.14.4",
+    "react-native-safe-area-context": "4.5.0",
+    "react-native-screens": "~3.20.0",
+    "react-native-svg": "13.4.0"
+  },
+  "resolutions": {
+    "react-native-permissions": "^3.8.0"
+  },
+  "overrides": {
+    "react-native-qrcode-scanner": {
+      "react-native-permissions": "3.6.1"
+    }
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.18.9"
+  },
+  "private": true
+}
