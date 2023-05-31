@@ -1,14 +1,20 @@
 import { useState } from 'react'
-import { FlatList, KeyboardAvoidingView, Modal, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native'
+import { Dimensions, FlatList, KeyboardAvoidingView, Modal, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native'
 import { AntDesign } from '@expo/vector-icons';
 
 import Separator from '../../Others/Separator';
 import react from 'react';
+import colors from '../../../app/config/colors';
+import { SubmitButtonAndroid, SubmitButtoniOS } from '../../Others/SubmitButton';
+
+const SubmitButton = Platform.select({
+    ios: ({style}) => <SubmitButtoniOS text="Submit Attendance" style={style} />,
+    android: ({style}) => <SubmitButtonAndroid text="Submit Attendance" style={style}/>,
+});
 
 const MPFormContent = () => {
     const [invStatement, setInvStatement] = useState('')
     const [description, setDescription] = useState('')
-    const images = []
 
     return (
         <ScrollView style={styles.container}>
@@ -168,22 +174,23 @@ const MPFormContent = () => {
                     </View>
         
                     <View style={{marginVertical: 15}}>
-                        <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
-                            <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
-                            <Text style={styles.formSectionTitle}>Images:</Text>
-                            <View style={styles.imageName1}>
-                                {/* <FlatList
-                                data={images}
-                                keyExtractor={(item) => item.id}
-                                renderItem={({item}) => <Text style={styles.formSectionResult}>{item.name}</Text>}
-                                /> */}
-                                <Text style={styles.formSectionResult}>item</Text>
-                            </View>
+                        <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',       backgroundColor: colors.grey
+}}>
+                            <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', }}>
+                                <Text style={styles.formSectionTitle}>Images:</Text>
+                                <View style={styles.imageName1}>
+                                    {/* <FlatList
+                                    data={images}
+                                    keyExtractor={(item) => item.id}
+                                    renderItem={({item}) => <Text style={styles.formSectionResult}>{item.name}</Text>}
+                                    /> */}
+                                    <Text style={styles.formSectionResult}>item</Text>
+                                </View>
                             </View>
             
                             <Pressable style={styles.selectorArrange} onPress={() => console.log('image uploaded')}>
-                            <Text style={styles.selector}>Upload Images</Text>
-                            <AntDesign name="down" size={12} color="black" style={{paddingTop: 3}}/>
+                                <Text style={styles.selector}>Upload Images</Text>
+                                <AntDesign name="down" size={12} color="black" style={{paddingTop: 3}}/>
                             </Pressable>
                         </View>
                     </View>
@@ -204,7 +211,7 @@ const MPFormContent = () => {
                 </View>
                 </View>
         
-                <View style={styles.formSection}>
+                <View style={[styles.formSection, {backgroundColor: colors.grey}]}>
                 <View style={styles.header}>
                     <Text style={styles.headerText}>Student's Statement</Text>
                     <Pressable style={styles.selectorArrange} onPress={() => console.log('image uploaded')}>
@@ -219,6 +226,7 @@ const MPFormContent = () => {
             </View>
     
             {/* Modals */}
+            <SubmitButton style={styles.button} />
     
         </ScrollView>
     )
@@ -227,15 +235,10 @@ const MPFormContent = () => {
 export default MPFormContent
 
 const styles = StyleSheet.create({
-    androidButton: {
-        borderRadius: 68,
-        width: 281,
-        height: 68,
-        padding: 10,
-        backgroundColor: '#32A431',
-        alignItems: 'center',
-        justifyContent: 'center',
-        alignSelf: 'center',
+    button:{
+        position:"absolute", 
+        top: Platform.OS === 'android' ? '59%' : '50%',
+        left: Platform.OS === 'android' ? '14%' : '50%'
     },
 
     container: {
@@ -297,6 +300,6 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       justifyContent: 'space-evenly',
       alignItems: 'center',
-      padding: 3
+      padding: 3,
     }
 })

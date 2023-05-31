@@ -194,10 +194,12 @@ const styles = StyleSheet.create({
     columnSpacing: {
         justifyContent: 'space-between',
     },
+
     button:{
       position:"absolute", 
       top: Platform.OS === 'android' ? '57%' : '50%'
     },
+    
     listContainer:{ 
       width:"100%"
     }

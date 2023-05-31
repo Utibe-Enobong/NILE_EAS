@@ -156,10 +156,6 @@ const list = [
       image: require('../../../app/assets/images/download.jpg'),
     }
 ];
-const SubmitButton = Platform.select({
-  ios: ({style}) => <SubmitButtoniOS text="Submit Attendance" style={style} />,
-  android: ({style}) => <SubmitButtonAndroid text="Submit Attendance" style={style}/>,
-});
 
 const MPCandidatesList = () => {
     return (
@@ -175,8 +171,6 @@ const MPCandidatesList = () => {
             numColumns= {2}
             style={styles.listContainer}
           />
-
-        <SubmitButton style={styles.button} />
       </View>
     )
 }
@@ -196,7 +190,7 @@ const styles = StyleSheet.create({
     },
     button:{
       position:"absolute", 
-      top: Platform.OS === 'android' ? '57%' : '50%'
+      top: Platform.OS === 'android' ? '63%' : '50%'
     },
     listContainer:{ 
       width:"100%"

@@ -14,18 +14,28 @@ import CandidatesList from './components/Invigilators/List/CandidatesList';
 import Options from './components/Others/Options';
 import MPFormContent from './components/Invigilators/MalpracticeForm/MPFormContent';
 import MPFormHeader from './components/Invigilators/MalpracticeForm/MPFormStudents';
-import MPForm from './components/Invigilators/MalpracticeForm/MPFormSelectStudent';
 import { SubmitButtoniOS, SubmitButtonAndroid } from './components/Others/SubmitButton';
 import MPFormSelectStudent from './components/Invigilators/MalpracticeForm/MPFormSelectStudent';
 import MPFormSelectOffence from './components/Invigilators/MalpracticeForm/MPFormSelectOffence';
 import Scanner from './components/Invigilators/Scanner/Scanner';
+// import { NavigationContainer } from '@react-navigation/native';
+// import StackNav from './components/Nav/StackNav';
+import Code from './components/Students/Code';
+import MPCandidatesList from './components/Invigilators/List/MPCandidatesList';
+import MPForm from './components/Invigilators/MPForm';
+import QRGen from './components/Others/QRGen';
+
+
+
+const Trial = Platform.select({
+  ios: () => <Scanner />,
+  android: () => <Code/>,
+});
 
 export default function App() {
+
   return (
-    // <View style= {styles.container}>
-      // {/* <Text>abcde</Text> */}
-      <MPFormSelectStudent/>
-    // </View>
+    <Trial />
 
   );
 }
